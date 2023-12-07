@@ -1,2 +1,2 @@
 - [ ] fix needed: send emails using gmail (gmail no longer allows less secure second party apps to access your account)
-- [ ] feature needed: add receiver name base64 encryption for secret_santa_no_mail.py for gifters to decode
+- [x] feature needed: add receiver name base64 encryption for secret_santa_no_mail.py for gifters to decode

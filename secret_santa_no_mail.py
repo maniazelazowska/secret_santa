@@ -1,12 +1,12 @@
 #please note: works for manual input only
-#possible feature: work with data imported from .txt or .xlsx files
 
 #for randomly assigning a giftee to a participant
 import random
+import base64
 
 participants = []
 recipients = []
-
+ 
 flag = 0
 while(flag == 0):
     try:
@@ -29,8 +29,7 @@ recipients = participants.copy()
 while any(participants[i] == recipients[i] for i in range (amount_of_participants)):
     random.shuffle(recipients)
     
-for f in range (amount_of_participants):
-    print(f"{participants[f]} gives a gift to {recipients[f]}")
- 
- #feature: as to not spoil the fun, print recipient name in base64 for participants to decode
- #(as person operating the script will be the admin that is also participating)
+encoded_recipients = [base64.b64encode(name.encode('utf-8')).decode('utf-8') for name in recipients]
+
+for f in range(amount_of_participants):
+    print(f"{participants[f]} gives a gift to {encoded_recipients[f]}")
